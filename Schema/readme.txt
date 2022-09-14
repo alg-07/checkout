@@ -1,0 +1,3 @@
+After updating the Database Schema it is necesary to also update the DataAccess auto generated code. For this you will need to open the Package Manager Console in Visual Studio, select Checkout.DataAccess as default project and after run the command:
+
+Scaffold-DbContext Name="DefaultConnection" Npgsql.EntityFrameworkCore.PostgreSQL -Namespace "Checkout.DataAccess.Entities" -Context "DataContext" -Force -OutputDir Entities
