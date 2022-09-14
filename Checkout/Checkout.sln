@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Checkout.Business", "Checko
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Checkout.DataAccess", "Checkout.DataAccess\Checkout.DataAccess.csproj", "{35B55AFA-184D-43F8-A206-5D382D1C525D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checkout.Business.UnitTests", "Checkout.Business.UnitTests\Checkout.Business.UnitTests.csproj", "{FD82462E-010A-4FE0-8A23-5BDB3714D7A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{35B55AFA-184D-43F8-A206-5D382D1C525D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35B55AFA-184D-43F8-A206-5D382D1C525D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35B55AFA-184D-43F8-A206-5D382D1C525D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD82462E-010A-4FE0-8A23-5BDB3714D7A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD82462E-010A-4FE0-8A23-5BDB3714D7A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD82462E-010A-4FE0-8A23-5BDB3714D7A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD82462E-010A-4FE0-8A23-5BDB3714D7A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

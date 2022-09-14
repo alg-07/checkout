@@ -34,11 +34,7 @@ namespace Checkout.Business.Services
 
         public async Task AddItemToBasket(int basketId, ItemDto itemDto)
         {
-            Basket? basket = await basketRepository.GetById(basketId);
-            if (basket == null)
-            {
-                throw new NotFoundException($"Cannot find basket with Id {basketId}");
-            }
+            await CheckBasketExists(basketId);
 
             Item item = new Item
             {
@@ -85,13 +81,18 @@ namespace Checkout.Business.Services
 
         public async Task UpdateBasketStatus(int basketId, BasketStatusDto basketStatusDto)
         {
+            await CheckBasketExists(basketId);
+
+            await basketRepository.UpdateStatus(basketId, basketStatusDto.Closed ?? false, basketStatusDto.Payed ?? false);
+        }
+
+        private async Task CheckBasketExists(int basketId)
+        {
             bool basketExists = await basketRepository.Exists(basketId);
             if (!basketExists)
             {
                 throw new NotFoundException($"Cannot find basket with Id {basketId}");
             }
-
-            await basketRepository.UpdateStatus(basketId, basketStatusDto.Closed ?? false, basketStatusDto.Payed ?? false);
         }
     }
 }

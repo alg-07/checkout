@@ -50,7 +50,8 @@ namespace Checkout.API.Controllers
                 BasketDto basket = await basketsService.GetBasket(id);
 
                 return Ok(basket);
-            } catch(NotFoundException ex)
+            }
+            catch (NotFoundException ex)
             {
                 return NotFound(ex.Message);
             }
