@@ -3,6 +3,7 @@ using Checkout.Business.Models;
 using Checkout.Business.Services;
 using Checkout.DataAccess.Entities;
 using Checkout.DataAccess.Repositories;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
@@ -17,6 +18,7 @@ namespace Checkout.Business.UnitTests
         private IBasketRepository substituteBasketRepository = null!;
         private IItemRepository substituteItemRepository = null!;
         private IOptions<CheckoutOptions> checkoutOptions = null!;
+        private ILogger<BasketsService> substituteLogger = null!;
 
         [TestInitialize]
         public void TestInitialize()
@@ -24,8 +26,9 @@ namespace Checkout.Business.UnitTests
             substituteBasketRepository = Substitute.For<IBasketRepository>();
             substituteItemRepository = Substitute.For<IItemRepository>();
             checkoutOptions = Options.Create<CheckoutOptions>(new CheckoutOptions { VatValue = 10 });
+            substituteLogger = Substitute.For<ILogger<BasketsService>>();
 
-            basketsService = new BasketsService(substituteBasketRepository, substituteItemRepository, checkoutOptions);
+            basketsService = new BasketsService(substituteBasketRepository, substituteItemRepository, checkoutOptions, substituteLogger);
         }
 
         [TestMethod]

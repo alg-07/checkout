@@ -37,8 +37,15 @@ namespace Checkout.API.Controllers
                 return BadRequest(ModelState);
             }
 
-            await basketsService.AddItemToBasket(id, item);
-            return Ok();
+            try
+            {
+                await basketsService.AddItemToBasket(id, item);
+                return Ok();
+            }
+            catch (NotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         [HttpGet]
